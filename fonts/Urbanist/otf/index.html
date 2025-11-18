@@ -23,9 +23,53 @@
         }
         li {
             margin: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .back {
             margin-bottom: 20px;
+        }
+        .copy-btn {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            padding: 2px 6px;
+            position: relative;
+        }
+        .copy-btn:hover {
+            background: #e0e0e0;
+        }
+        .copy-btn:active {
+            background: #d0d0d0;
+        }
+        .copy-btn[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 100%;
+            margin-bottom: 5px;
+            padding: 4px 8px;
+            background: #333;
+            color: #fff;
+            border-radius: 3px;
+            font-size: 11px;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+        .copy-btn[data-tooltip]:hover::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 100%;
+            margin-bottom: 1px;
+            border: 4px solid transparent;
+            border-top-color: #333;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -34,25 +78,47 @@
     <h1>OTF</h1>
     <hr>
     <ul>
-        <li><a href="Urbanist-Black.otf">Urbanist-Black.otf</a></li>
-        <li><a href="Urbanist-BlackItalic.otf">Urbanist-BlackItalic.otf</a></li>
-        <li><a href="Urbanist-Bold.otf">Urbanist-Bold.otf</a></li>
-        <li><a href="Urbanist-BoldItalic.otf">Urbanist-BoldItalic.otf</a></li>
-        <li><a href="Urbanist-ExtraBold.otf">Urbanist-ExtraBold.otf</a></li>
-        <li><a href="Urbanist-ExtraBoldItalic.otf">Urbanist-ExtraBoldItalic.otf</a></li>
-        <li><a href="Urbanist-ExtraLight.otf">Urbanist-ExtraLight.otf</a></li>
-        <li><a href="Urbanist-ExtraLightItalic.otf">Urbanist-ExtraLightItalic.otf</a></li>
-        <li><a href="Urbanist-Italic.otf">Urbanist-Italic.otf</a></li>
-        <li><a href="Urbanist-Light.otf">Urbanist-Light.otf</a></li>
-        <li><a href="Urbanist-LightItalic.otf">Urbanist-LightItalic.otf</a></li>
-        <li><a href="Urbanist-Medium.otf">Urbanist-Medium.otf</a></li>
-        <li><a href="Urbanist-MediumItalic.otf">Urbanist-MediumItalic.otf</a></li>
-        <li><a href="Urbanist-Regular.otf">Urbanist-Regular.otf</a></li>
-        <li><a href="Urbanist-SemiBold.otf">Urbanist-SemiBold.otf</a></li>
-        <li><a href="Urbanist-SemiBoldItalic.otf">Urbanist-SemiBoldItalic.otf</a></li>
-        <li><a href="Urbanist-Thin.otf">Urbanist-Thin.otf</a></li>
-        <li><a href="Urbanist-ThinItalic.otf">Urbanist-ThinItalic.otf</a></li>
+        <li><a href="Urbanist-Black.otf">Urbanist-Black.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-Black.otf')">📋</button></li>
+        <li><a href="Urbanist-BlackItalic.otf">Urbanist-BlackItalic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-BlackItalic.otf')">📋</button></li>
+        <li><a href="Urbanist-Bold.otf">Urbanist-Bold.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-Bold.otf')">📋</button></li>
+        <li><a href="Urbanist-BoldItalic.otf">Urbanist-BoldItalic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-BoldItalic.otf')">📋</button></li>
+        <li><a href="Urbanist-ExtraBold.otf">Urbanist-ExtraBold.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-ExtraBold.otf')">📋</button></li>
+        <li><a href="Urbanist-ExtraBoldItalic.otf">Urbanist-ExtraBoldItalic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-ExtraBoldItalic.otf')">📋</button></li>
+        <li><a href="Urbanist-ExtraLight.otf">Urbanist-ExtraLight.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-ExtraLight.otf')">📋</button></li>
+        <li><a href="Urbanist-ExtraLightItalic.otf">Urbanist-ExtraLightItalic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-ExtraLightItalic.otf')">📋</button></li>
+        <li><a href="Urbanist-Italic.otf">Urbanist-Italic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-Italic.otf')">📋</button></li>
+        <li><a href="Urbanist-Light.otf">Urbanist-Light.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-Light.otf')">📋</button></li>
+        <li><a href="Urbanist-LightItalic.otf">Urbanist-LightItalic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-LightItalic.otf')">📋</button></li>
+        <li><a href="Urbanist-Medium.otf">Urbanist-Medium.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-Medium.otf')">📋</button></li>
+        <li><a href="Urbanist-MediumItalic.otf">Urbanist-MediumItalic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-MediumItalic.otf')">📋</button></li>
+        <li><a href="Urbanist-Regular.otf">Urbanist-Regular.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-Regular.otf')">📋</button></li>
+        <li><a href="Urbanist-SemiBold.otf">Urbanist-SemiBold.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-SemiBold.otf')">📋</button></li>
+        <li><a href="Urbanist-SemiBoldItalic.otf">Urbanist-SemiBoldItalic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-SemiBoldItalic.otf')">📋</button></li>
+        <li><a href="Urbanist-Thin.otf">Urbanist-Thin.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-Thin.otf')">📋</button></li>
+        <li><a href="Urbanist-ThinItalic.otf">Urbanist-ThinItalic.otf</a><button class="copy-btn" data-tooltip="Copy URL" onclick="copyUrl(this, 'Urbanist-ThinItalic.otf')">📋</button></li>
     </ul>
+    <script>
+        function copyUrl(btn, path) {
+            const url = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + path;
+            navigator.clipboard.writeText(url).then(() => {
+                const original = btn.textContent;
+                btn.textContent = '✓';
+                btn.style.background = '#d4edda';
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.style.background = '';
+                }, 1000);
+            }).catch(() => {
+                const original = btn.textContent;
+                btn.textContent = '✗';
+                btn.style.background = '#f8d7da';
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.style.background = '';
+                }, 1000);
+            });
+        }
+    </script>
 </body>
 </html>
 
